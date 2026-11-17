@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false, // <-- Tambahkan di sini
       title: 'TelloNumora',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.redAccent)),
       home: MainScreen(),
