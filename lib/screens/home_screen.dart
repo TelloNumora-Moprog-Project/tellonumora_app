@@ -12,9 +12,7 @@ class HomeScreen extends StatelessWidget {
           const HomeSearch(),
           const SizedBox(height: 20),
           const Expanded(
-            child: Center(
-              child: MainHome(),
-            )
+            child: MainHome(),
           )
         ],
       ),
@@ -51,15 +49,12 @@ class MainHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        children: [
-          const RecentCalls(),
-          const SizedBox(height: 16),
-          const RecentCalls(),
-        ]
-      )
+    return ListView(
+      children: [
+        const RecentCalls(),
+        const SizedBox(height: 16),
+        const RecentCalls(),
+      ]
     );
   }
 }
