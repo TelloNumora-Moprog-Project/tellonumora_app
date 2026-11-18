@@ -29,9 +29,14 @@ class HomeSearch extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
+        filled: true,
+        fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
         hintText: "Search...",
         prefixIcon: const Icon(Icons.search),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(24),  
+          borderSide: BorderSide.none,
+        ),
         contentPadding: const EdgeInsets.symmetric(
           vertical: 12,
           horizontal: 16,
@@ -46,9 +51,25 @@ class MainHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      'Welcome to TelloNumora',
-      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          const RecentCalls(),
+          const SizedBox(height: 16),
+          const RecentCalls(),
+        ]
+      )
     );
+  }
+}
+
+class RecentCalls extends StatefulWidget {
+  const RecentCalls({super.key});
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
   }
 }

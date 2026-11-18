@@ -18,7 +18,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'TelloNumora',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.redAccent)),
+      theme: ThemeData(
+        colorScheme: .fromSeed(seedColor: Colors.redAccent),
+        fontFamily: 'Lato',
+      ),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.red,
+          brightness: Brightness.dark,
+        ),
+      ),
+      themeMode: ThemeMode.system, 
+      debugShowCheckedModeBanner: false,
       home: MainScreen(),
     );
   }
@@ -47,8 +59,26 @@ class _MainScreenState extends State<MainScreen> {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('TelloNumora'),
           centerTitle: true,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/logo.png',
+                height: 32,
+              ),
+              const SizedBox(width: 8),
+              const Text(
+                'TelloNumora',
+                style: TextStyle(
+                  fontFamily: 'Amaranth',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 26,
+                ),
+              )
+            ]
+          ),
+          
         ),
         body: _screens[_selectedIndex],
         bottomNavigationBar: AppBottomNavigationBar(
@@ -76,7 +106,7 @@ class AppBottomNavigationBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       currentIndex: selectedIndex,
       onTap: onTap,
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
       selectedItemColor: Colors.redAccent,
       unselectedItemColor: Colors.deepOrange.shade100,
       selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
