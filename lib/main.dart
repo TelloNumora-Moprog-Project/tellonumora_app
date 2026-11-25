@@ -6,6 +6,7 @@ import 'package:tellonumora_app/screens/menu_screen.dart';
 import 'package:tellonumora_app/screens/protection_screen.dart';
 import 'package:tellonumora_app/screens/chat_screen.dart';
 import 'package:tellonumora_app/screens/settings_screen.dart';
+import 'package:tellonumora_app/screens/subscription_screen.dart';
 
 // Packages
 import 'package:tellonumora_app/app_accents.dart';
@@ -45,6 +46,7 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     ChatScreen(),
     ProtectionScreen(),
+    SubscriptionScreen(),
     MenuScreen(),
   ];
 
@@ -104,6 +106,7 @@ class AppBottomNavigationBar extends StatelessWidget {
         ),
         NavigationDestination(icon: Icon(Icons.chat), label: 'Chat'),
         NavigationDestination(icon: Icon(Icons.shield), label: 'Protection'),
+        NavigationDestination(icon: Icon(Icons.wallet_membership), label: 'Subscription'),
         NavigationDestination(icon: Icon(Icons.menu), label: 'Menu'),
       ],
     );
