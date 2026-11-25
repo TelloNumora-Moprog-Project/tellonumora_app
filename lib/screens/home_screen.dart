@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../app_accents.dart';
+import 'home_widgets/recent_calls.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -11,11 +14,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           const HomeSearch(),
           const SizedBox(height: 20),
-          const Expanded(
-            child: Center(
-              child: MainHome(),
-            )
-          )
+          const Expanded(child: MainHome()),
         ],
       ),
     );
@@ -29,9 +28,14 @@ class HomeSearch extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
+        filled: true,
+        fillColor: widgetColor,
         hintText: "Search...",
         prefixIcon: const Icon(Icons.search),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(24),
+          borderSide: BorderSide.none,
+        ),
         contentPadding: const EdgeInsets.symmetric(
           vertical: 12,
           horizontal: 16,
@@ -46,9 +50,11 @@ class MainHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      'Welcome to TelloNumora',
-      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+    return ListView(
+      children: [
+        const RecentCalls(),
+        const SizedBox(height: 16),
+      ],
     );
   }
 }
