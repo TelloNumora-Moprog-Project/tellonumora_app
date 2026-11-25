@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../app_accents.dart';
+import 'home_widgets/recent_calls.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -11,9 +14,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           const HomeSearch(),
           const SizedBox(height: 20),
-          const Expanded(
-            child: MainHome(),
-          )
+          const Expanded(child: MainHome()),
         ],
       ),
     );
@@ -28,11 +29,11 @@ class HomeSearch extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         filled: true,
-        fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+        fillColor: widgetColor,
         hintText: "Search...",
         prefixIcon: const Icon(Icons.search),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(24),  
+          borderRadius: BorderRadius.circular(24),
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
@@ -53,18 +54,7 @@ class MainHome extends StatelessWidget {
       children: [
         const RecentCalls(),
         const SizedBox(height: 16),
-        const RecentCalls(),
-      ]
+      ],
     );
-  }
-}
-
-class RecentCalls extends StatefulWidget {
-  const RecentCalls({super.key});
-
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
   }
 }
