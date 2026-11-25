@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../app_accents.dart';
+import '../call_history_screen.dart';
 
 const titleDivider = Divider(height: 24, thickness: 1, color: lineColor);
 const divider = Divider(height: 6, thickness: 1, color: lineColor);
@@ -14,7 +15,7 @@ class RecentCalls extends StatefulWidget {
 
 class _RecentCalls extends State<RecentCalls> {
   @override
-  Widget build(Object context) {
+  Widget build(BuildContext context) {
     return Container(
       height: 260.0,
       padding: const EdgeInsets.all(12.0),
@@ -43,7 +44,14 @@ class _RecentCalls extends State<RecentCalls> {
                 ),
               ),
               child: Text("Show All"),
-              onPressed: () async {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CallHistoryScreen(),
+                  ),
+                );
+              },
             ),
           ),
         ],
